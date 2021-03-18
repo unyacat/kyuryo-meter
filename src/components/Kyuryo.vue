@@ -198,7 +198,6 @@ export default {
     if (localStorage.getItem("hourlyWage")) {
       this.hourlyWage = localStorage.hourlyWage
     }
-    document.title = "秒給メーター"
     setInterval(this.calcEarnedMoney, 1)
   },
   computed: {
