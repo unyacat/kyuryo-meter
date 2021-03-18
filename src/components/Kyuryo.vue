@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" >
+    <v-row justify="center" class="mb-n10">
+      <v-col cols="12">
         <div id="kyuryo-main">
           {{ String(earn).split(".")[0] }}
           <span id="kyuryo-sub">
@@ -13,7 +13,20 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="3">
+      <v-btn
+      color="#1B95E0"
+      dark
+      depressed
+      :href="tweetContent"
+      >
+      <v-icon>
+        mdi-twitter
+      </v-icon>
+         Tweet
+      </v-btn>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="6" md="5" lg="5" xl="3">
         <v-text-field
           label="時給"
           type="number"
@@ -23,10 +36,11 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row justify="center">
      <v-col
-      cols="11"
-      sm="5"
+      cols="6"
+      lg="4"
+      xl="2"
     >
       <v-menu
         ref="menu1"
@@ -42,7 +56,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
             v-model="start"
-            label="Picker in menu"
+            label="始業時間"
             prepend-icon="mdi-clock-time-four-outline"
             readonly
             v-bind="attrs"
@@ -59,10 +73,10 @@
         ></v-time-picker>
       </v-menu>
     </v-col>
-    <v-spacer />
      <v-col
-      cols="11"
-      sm="5"
+      cols="6"
+      lg="4"
+      xl="2"
     >
       <v-menu
         ref="menu2"
@@ -78,7 +92,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
             v-model="end"
-            label="Picker in menu"
+            label="終業時間"
             prepend-icon="mdi-clock-time-four-outline"
             readonly
             v-bind="attrs"
@@ -96,21 +110,30 @@
       </v-menu>
     </v-col>
     </v-row>
-    <v-row justify="center">
-      <v-col cols="4" >
+    <v-row justify="center" dense>
+      <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="2">
         <v-switch
+          dense
           v-model="allowMinus"
-          label="始業前労働を許す">
+          label="始業前労働を許す"
+          >
         </v-switch>
       </v-col>
-    </v-row>
-     <v-row justify="center">
-      <v-col cols="4">
+      <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="2">
         <v-switch
+          dense
           v-model="allowOver"
           label="終業後労働を許す">
         </v-switch>
       </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-switch
+        dense
+        v-model="viewSalaryOnTitle"
+        label="タイトルに表示する"
+        >
+      </v-switch>
     </v-row>
   </v-container>
 </template>
@@ -127,7 +150,8 @@ export default {
       menu1: false,
       menu2: false,
       allowMinus: false,
-      allowOver: false
+      allowOver: false,
+      viewSalaryOnTitle: false
     }
   },
   methods: {
@@ -148,6 +172,10 @@ export default {
       }
       else {
         this.earn = (((end - start) / 1000) * this.secWage).toFixed(3)
+      }
+      if (this.viewSalaryOnTitle) {
+        const title = String(this.earn).split(".")[0] + " 円"
+        document.title = title
       }
     },
     changeStartTime: function() {
@@ -170,11 +198,17 @@ export default {
     if (localStorage.getItem("hourlyWage")) {
       this.hourlyWage = localStorage.hourlyWage
     }
+    document.title = "秒給メーター"
     setInterval(this.calcEarnedMoney, 1)
   },
   computed: {
     secWage: function() {
       return this.hourlyWage / (60 * 60)
+    },
+    tweetContent: function() {
+      const url = "https://twitter.com/intent/tweet?text="
+      const content = "今の給料は " + this.earn + " 円！ " + "あなたも計算してみよう %23秒給メーター https://second-pay.work"
+      return url + content
     }
   }
 }
@@ -186,7 +220,15 @@ export default {
   text-align: center;
 }
 
+@media screen and (max-width:480px) {
+  #kyuryo-main {
+    font-size: 60px
+  }
+}
+
+
 #kyuryo-sub {
   font-size : 32px;
+  margin-left: -20px;
 }
 </style>
