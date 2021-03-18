@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.d66ddd2e2327b476298c28b5648808eb.js"
+  "/precache-manifest.9450d589835c2b734089111cbd3c2397.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "secpay.work"});
