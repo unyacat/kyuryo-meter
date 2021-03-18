@@ -228,6 +228,6 @@ export default {
 
 #kyuryo-sub {
   font-size : 32px;
-  margin-left: -20px;
+  margin-left: -10px;
 }
 </style>
