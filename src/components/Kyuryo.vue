@@ -180,6 +180,9 @@ export default {
         const title = String(this.earn).split(".")[0] + " 円"
         document.title = title
       }
+      else {
+        document.title = "秒給メーター"
+      }
     },
     changeStartTime: function() {
       localStorage.start = this.start
