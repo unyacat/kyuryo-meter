@@ -116,6 +116,7 @@
           dense
           v-model="allowMinus"
           label="始業前労働を許す"
+          @change="changeAllowMinueSwitch"
           >
         </v-switch>
       </v-col>
@@ -123,7 +124,8 @@
         <v-switch
           dense
           v-model="allowOver"
-          label="終業後労働を許す">
+          label="終業後労働を許す"
+          @change="changeAllowOverSwitch">
         </v-switch>
       </v-col>
     </v-row>
@@ -132,6 +134,7 @@
         dense
         v-model="viewSalaryOnTitle"
         label="タイトルに表示する"
+        @change="changeViewSalaryOnTitleSwitch"
         >
       </v-switch>
     </v-row>
@@ -186,6 +189,15 @@ export default {
     },
     changeHourlyWage: function() {
       localStorage.hourlyWage = this.hourlyWage
+    },
+    changeAllowMinueSwitch: function() {
+      localStorage.allowMinus = this.allowMinus
+    },
+    changeAllowOverSwitch: function() {
+      localStorage.allowOver = this.allowOver
+    },
+    changeViewSalaryOnTitleSwitch: function() {
+      localStorage.viewSalaryOnTitle = this.viewSalaryOnTitle
     }
   },
   mounted() {
@@ -197,6 +209,15 @@ export default {
     }
     if (localStorage.getItem("hourlyWage")) {
       this.hourlyWage = localStorage.hourlyWage
+    }
+    if (localStorage.getItem("changeAllowMinusSwitch")) {
+      this.allowMinus = localStorage.allowMinus
+    }
+    if (localStorage.getItem("allowOver")) {
+      this.allowOver = localStorage.allowOver
+    }
+    if (localStorage.getItem("viewSalaryOnTitle")) {
+      this.viewSalaryOnTitle = localStorage.viewSalaryOnTitle
     }
     setInterval(this.calcEarnedMoney, 1)
   },
