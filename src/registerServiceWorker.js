@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
       console.log('Service worker has been registered.')
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('/serviceworker.js')
+          .register('/service-worker.js')
           .then(registration => {
             // 登録成功
             registration.onupdatefound = function() {
