@@ -138,12 +138,27 @@
         >
       </v-switch>
     </v-row>
+    <v-row justify="center">
+      <v-col cols="12" sm="6" md="6" lg="5" xl="3">
+        <amazon-affiliate />
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="12" sm="6" md="6" lg="5" xl="3">
+        <rakuten-affiliate />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import dayjs from 'dayjs'
+import RakutenAffiliate from './RakutenAffiliate.vue'
+import AmazonAffiliate from './AmazonAffiliate.vue'
+
+
 export default {
+  name: 'kyuryo',
   data() {
     return {
       earn: 0,        // 獲得
@@ -156,6 +171,10 @@ export default {
       allowOver: false,
       viewSalaryOnTitle: false
     }
+  },
+  components: {
+    RakutenAffiliate,
+    AmazonAffiliate
   },
   methods: {
     calcEarnedMoney: function() {
