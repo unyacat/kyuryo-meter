@@ -18,6 +18,8 @@
       dark
       depressed
       :href="tweetContent"
+      target="_blank"
+      rel="nofollow noopener"
       >
       <v-icon>
         mdi-twitter
