@@ -154,7 +154,7 @@
       </v-col>
     </v-row>
     <h4 style="text-align: center" class="ma-3 mt-10">
-      休憩や残業は考慮していません．<br />
+      休憩や残業は考慮しません．<br />
       入力した情報は外部に保存していません．<br /> 作者: <a href="https://sumika.unyacat.net">うにゃ</a>
     </h4>
   </v-container>
