@@ -138,14 +138,17 @@
         >
       </v-switch>
     </v-row>
+    <h4 style="text-align: center" class="ma-3 mt-10">
+      ↓自分へのご褒美を買う↓
+    </h4>
     <v-row justify="center">
-      <v-col cols="12" sm="6" md="6" lg="5" xl="3">
-        <amazon-affiliate />
+      <v-col cols="12" sm="8" md="7" lg="5" xl="4">
+        <rakuten-affiliate />
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="12" sm="6" md="6" lg="5" xl="3">
-        <rakuten-affiliate />
+      <v-col cols="12" sm="8" md="7" lg="5" xl="4">
+        <amazon-affiliate />
       </v-col>
     </v-row>
   </v-container>

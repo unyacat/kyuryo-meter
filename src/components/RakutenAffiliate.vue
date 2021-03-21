@@ -11,7 +11,4 @@ export default {
 </script>
 
 <style>
-.resizeimage img {
-   width: 100%;
-}
 </style>
