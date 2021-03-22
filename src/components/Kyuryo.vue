@@ -113,7 +113,7 @@
     </v-col>
     </v-row>
     <v-row justify="center" dense>
-      <v-col cols="6" xs="12" sm="6" md="4" lg="3" xl="2">
+      <v-col cols="6" xs="12" sm="6" md="6" lg="4" xl="2">
         <v-switch
           dense
           v-model="allowMinus"
@@ -122,7 +122,7 @@
           >
         </v-switch>
       </v-col>
-      <v-col cols="6" xs="12" sm="6" md="4" lg="3" xl="2">
+      <v-col cols="6" xs="12" sm="6" md="6" lg="4" xl="2">
         <v-switch
           dense
           v-model="allowOver"
