@@ -1,4 +1,5 @@
 # kyuryo-meter
+[second-pay.work/](second-pay.work/)
 
 ## Project setup
 ```
