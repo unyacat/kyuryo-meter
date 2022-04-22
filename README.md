@@ -1,25 +1,7 @@
-# kyuryo-meter
-[second-pay.work/](second-pay.work/)
+# 秒給メーター
+時給があるなら秒給もあっていいじゃない．  
+給料がリアルタイムで確認できてもいいじゃない．
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+「今」どれくらいの給料を獲得したかを表示します．    
+[https://secpay.netlify.app/](https://secpay.netlify.app/)  
+~~[second-pay.work/](second-pay.work/)~~
